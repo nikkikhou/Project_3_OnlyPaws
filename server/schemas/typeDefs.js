@@ -5,8 +5,8 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String!
+    profile: [Profile]
   }
-
   type Auth {
     token: ID!
     user: User
@@ -15,8 +15,8 @@ const typeDefs = gql`
     name: String
     aboutMe: String
     img: String
+    post: [Post]
   }
-  
   type Post {
     _id: ID
     postText: String
