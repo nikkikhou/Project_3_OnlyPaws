@@ -12,13 +12,23 @@ const typeDefs = gql`
     user: User
   }
 
+  type Post {
+    _id: ID
+    postText: String
+    postAuthor: String
+    createdAt: String
+  }
+
   type Query {
     user(userId: ID!): User
+    post(postId: ID!): Post
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    addPost(posttText: String!): Post
+    removePost(postId: ID!): Post
   }
 `;
 
