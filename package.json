@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "apollo-server-express": "^3.10.1",
+    "bulma": "^0.9.4",
+    "command": "^0.0.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "graphql": "^16.5.0"

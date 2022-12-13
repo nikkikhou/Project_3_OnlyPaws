@@ -10,6 +10,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Auth from './utils/auth';
 
+/// ADDED BULMA /// 
+import 'bulma/css/bulma.min.css';
+
+
 /// IMPORT PAGES ///
 import Landing from './pages/Landing';
 import Signup from './pages/Signup';
