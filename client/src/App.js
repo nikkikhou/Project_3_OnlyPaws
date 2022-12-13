@@ -19,6 +19,7 @@ import Landing from './pages/Landing';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
 
 /// IMPORT COMPONENTS ///
 import ProtectRoute from './components/ProtectRoute';
@@ -58,6 +59,7 @@ function App() {
             path='dashboard/:userId'
             element={Auth.loggedIn() ? <Dashboard /> : <ProtectRoute />}
           />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </Router>
     </ApolloProvider>
