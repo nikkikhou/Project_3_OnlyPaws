@@ -5,7 +5,7 @@ query user($userId: ID!) {
   user(userId: $userId) {
     _id
     username
-    email
+    breed
     courseCount
     courses {
       _id

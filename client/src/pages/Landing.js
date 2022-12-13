@@ -3,15 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
-    // <main class="is-primary">
-    //   <div class="is-size-1 has-text-centered">Welcome To Onlypaws!</div>
-    //   <Link class="is-size-3 has-text-centered" to='/signup' style={{ textDecoration: 'none' }}>
-    //     <h2>Sign Up now</h2>
-    //   </Link>
-    //   <Link class="is-size-3 has-text-centered" to='/login' style={{ textDecoration: 'none' }}>
-    //     <h2>Login now</h2>
-    //   </Link>
-    // </main>
     <body>
       <section class="hero is-primary is-fullheight">
         <div class="hero-head">
