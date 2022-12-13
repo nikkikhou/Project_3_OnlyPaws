@@ -11,15 +11,12 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
-
-profile-model
   type Profile {
     name: String
     aboutMe: String
     img: String
-    # Add a queryable field to retrieve a single Professor object
-    # post: [Post]!
-    
+  }
+  
   type Post {
     _id: ID
     postText: String
@@ -29,7 +26,7 @@ profile-model
 
   type Query {
     user(userId: ID!): User
-profile-model
+
     profile(userId: ID!): Profile
     
     post(postId: ID!): Post
