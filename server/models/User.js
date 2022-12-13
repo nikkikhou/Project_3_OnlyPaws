@@ -8,11 +8,10 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    email: {
+    breed: {
       type: String,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
     password: {
       type: String,
