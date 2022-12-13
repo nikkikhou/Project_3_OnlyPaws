@@ -24,5 +24,4 @@ posts: {
 });
 
 const Profile = model('Profile', profileSchema);
-
 module.exports = Profile;
