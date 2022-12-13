@@ -10,8 +10,8 @@ const Signup = () => {
 
   const [formState, setFormState] = useState({
     username: '',
+    email: '',
     password: '',
-    breed: '',
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -45,50 +45,33 @@ const Signup = () => {
       {data ? (
         <p variant='subtitle1'>Successfully created an account. You may now head{' '}<Link to='/'>back to the hompage.</Link></p>
       ) : (
-        <section class="hero is-primary is-fullheight">
-        <div class="hero-body">
-          <div class="container">
-            <div class="columns is-centered">
-              <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-                <form action="" class="box">
-                  <div class="field">
-                    <label for="" class="label">Username</label>
-                    <div class="control has-icons-left">
-                      <input type="text" placeholder="Enter Username" class="input" required/>
-                      <span class="icon is-small is-left">
-                        <i class="fa fa-envelope"></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="field">
-                    <label for="" class="label">Breed</label>
-                    <div class="control has-icons-left">
-                      <input type="text" placeholder="Enter Breed" class="input" required/>
-                      <span class="icon is-small is-left">
-                        <i class="fa fa-envelope"></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="field">
-                    <label for="" class="label">Password</label>
-                    <div class="control has-icons-left">
-                      <input type="password" placeholder="Enter Password" class="input" required/>
-                      <span class="icon is-small is-left">
-                        <i class="fa fa-lock"></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="field">
-                    <button class="button is-success">
-                      Create Account
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+        <div>
+          <h2>Sign Up</h2>
+          <form onSubmit={handleFormSubmit}>
+            <input
+              placeholder='Username'
+              name='username'
+              type='text'
+              value={formState.username}
+              onChange={handleChange}
+            />
+            <input
+              placeholder='Email'
+              name='email'
+              type='text'
+              value={formState.email}
+              onChange={handleChange}
+            />
+            <input
+              placeholder='Password'
+              name='password'
+              type='password'
+              value={formState.password}
+              onChange={handleChange}
+            />
+            <button type='submit'>Sign Up</button>
+          </form>
         </div>
-      </section>
       )}
       {error && (
         <div>
