@@ -5,7 +5,6 @@ query user($userId: ID!) {
   user(userId: $userId) {
     _id
     username
-    email
     courseCount
     courses {
       _id

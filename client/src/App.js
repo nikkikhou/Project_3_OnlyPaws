@@ -40,6 +40,19 @@ const authLink = setContext((_, { headers }) => {
     },
   };
 });
+/// FETCHING API ///
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '9dfb8afc12mshebf3293356f7965p1650ffjsn900cebbd394a',
+		'X-RapidAPI-Host': 'dog-breeds2.p.rapidapi.com'
+	}
+};
+
+fetch('https://dog-breeds2.p.rapidapi.com/dog_breeds', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
 
 /// SET UP CLIENT ///
 const client = new ApolloClient({
