@@ -45,33 +45,66 @@ const Signup = () => {
       {data ? (
         <p variant='subtitle1'>Successfully created an account. You may now head{' '}<Link to='/'>back to the hompage.</Link></p>
       ) : (
-        <div>
-          <h2>Sign Up</h2>
-          <form onSubmit={handleFormSubmit}>
-            <input
+
+
+<section className="hero is-dark is-fullheight">
+  <div className="hero-body">
+    <div className="container">
+      <div className="columns is-centered">
+        <div className="column is-2-tablet ">
+          <form onSubmit={handleFormSubmit} className="box signup-form">
+            <div className="field">
+              <label for="" class="label">Username</label>
+              <div className="control has-icons-left">
+              <input
               placeholder='Username'
               name='username'
               type='text'
               value={formState.username}
               onChange={handleChange}
-            />
-            <input
+            />              </div>
+            </div>
+            <div className="field">
+              <label for="" className="label">Email</label>
+              <div className="control has-icons-left">
+              <input
               placeholder='Email'
               name='email'
               type='text'
               value={formState.email}
               onChange={handleChange}
-            />
-            <input
+            />           
+            <span className="icon is-small is-left">
+                  <i className="fa fa-envelope" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+            <div className="field">
+              <label for="" class="label">Password</label>
+              <div class="control has-icons-left">
+              <input
               placeholder='Password'
               name='password'
               type='password'
               value={formState.password}
               onChange={handleChange}
-            />
-            <button type='submit'>Sign Up</button>
+            />            
+             <span className="icon is-small is-left">
+                  <i className="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            <div  className="field">
+              <button className="button is-info" type="submit">
+                Signup
+              </button>
+            </div>
           </form>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
       )}
       {error && (
         <div>
