@@ -28,7 +28,7 @@ const typeDefs = gql`
     user(userId: ID!): User
 
     profile(userId: ID!): Profile
-    
+    posts(username: String): [Post]
     post(postId: ID!): Post
 
   }
@@ -43,8 +43,7 @@ const typeDefs = gql`
     addAboutMe(name: String, aboutMe: String): Profile
     # add profile
     addProfile(name: String, aboutMe: String, img: String): Profile
-
-    addPost(posttText: String!): Post
+    addPost(postText: String!): Post
     removePost(postId: ID!): Post
 
   }
