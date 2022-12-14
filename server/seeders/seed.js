@@ -11,8 +11,20 @@ db.once('open', async () => {
     await Profile.deleteMany({});
 
     await User.create(userSeeds);
-    await Profile.create(profileSeeds);
+    // await Profile.create(profileSeeds);
     // await Post.create(postSeeds);
+
+    for (let i = 0; i < profileSeeds.length; i++) {
+      const { _id, username } = await Profile.create(profileSeeds[i]);
+      const user = await User.findOneAndUpdate(
+        { name: username },
+        {
+          $addToSet: {
+            profile: _id,
+          },
+        }
+      );
+    }
 
 
     for (let i = 0; i < postSeeds.length; i++) {
@@ -27,17 +39,6 @@ db.once('open', async () => {
       );
     }
 
-    // for (let i = 0; i < profileSeeds.length; i++) {
-    //   const { _id, username } = await Profile.create(profileSeeds[i]);
-    //   const user = await User.findOneAndUpdate(
-    //     { name: username },
-    //     {
-    //       $addToSet: {
-    //         profile: _id,
-    //       },
-    //     }
-    //   );
-    // }
   } catch (err) {
     console.error(err);
     process.exit(1);
