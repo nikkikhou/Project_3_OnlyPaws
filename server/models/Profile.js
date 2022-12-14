@@ -13,14 +13,15 @@ aboutMe: {
   max: 280,
 },
 img:{
+    type: String,
     data: Buffer,
-    contentType: String
 },
-posts: {
+posts: [
+  {
     type: Schema.Types.ObjectId,
     ref: 'Post',
-}
-
+  },
+],
 });
 
 const Profile = model('Profile', profileSchema);

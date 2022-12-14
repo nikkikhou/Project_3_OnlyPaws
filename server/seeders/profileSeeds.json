@@ -1,4 +1,8 @@
-{
-    "name": "Flaco",
-  "aboutMe": "I'm a chihuahua"
-}
+[
+  {
+  "name": "Flaco",
+  "aboutMe": "I'm a chihuahua",
+  "img": "",
+  "post": []
+  }
+]
