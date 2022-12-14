@@ -12,20 +12,20 @@ db.once('open', async () => {
 
     // await User.create(userSeeds);
     await Profile.create(profileSeeds);
-    await Post.create(postSeeds);
+    // await Post.create(postSeeds);
 
 
-    // for (let i = 0; i < postSeeds.length; i++) {
-    //   const { _id, postAuthor } = await Post.create(postSeeds[i]);
-    //   const user = await User.findOneAndUpdate(
-    //     { username: postAuthor },
-    //     {
-    //       $addToSet: {
-    //         posts: _id,
-    //       },
-    //     }
-    //   );
-    // }
+    for (let i = 0; i < postSeeds.length; i++) {
+      const { _id, postAuthor } = await Post.create(postSeeds[i]);
+      const user = await Profile.findOneAndUpdate(
+        { name: postAuthor },
+        {
+          $addToSet: {
+            posts: _id,
+          },
+        }
+      );
+    }
   } catch (err) {
     console.error(err);
     process.exit(1);
