@@ -12,9 +12,9 @@ aboutMe: {
   trim: true,
   max: 280,
 },
-img: { 
-  data: Buffer, 
-  contentType: String,
+img:{
+    data: Buffer,
+    contentType: String
 },
 posts: {
     type: Schema.Types.ObjectId,
