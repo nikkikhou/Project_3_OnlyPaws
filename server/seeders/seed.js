@@ -1,18 +1,30 @@
 const db = require('../config/connection');
 const { User, Post, Profile, } = require('../models');
-// const userSeeds = require('./userSeeds.json');
+const userSeeds = require('./userSeeds.json');
 const postSeeds = require('./postSeeds.json');
 const profileSeeds = require('./profileSeeds.json');
 
 db.once('open', async () => {
   try {
     await Post.deleteMany({});
-    // await User.deleteMany({});
+    await User.deleteMany({});
     await Profile.deleteMany({});
 
-    // await User.create(userSeeds);
-    await Profile.create(profileSeeds);
+    await User.create(userSeeds);
+    // await Profile.create(profileSeeds);
     // await Post.create(postSeeds);
+
+    for (let i = 0; i < profileSeeds.length; i++) {
+      const { _id, username } = await Profile.create(profileSeeds[i]);
+      const user = await User.findOneAndUpdate(
+        { name: username },
+        {
+          $addToSet: {
+            profile: _id,
+          },
+        }
+      );
+    }
 
 
     for (let i = 0; i < postSeeds.length; i++) {
@@ -26,6 +38,7 @@ db.once('open', async () => {
         }
       );
     }
+
   } catch (err) {
     console.error(err);
     process.exit(1);
