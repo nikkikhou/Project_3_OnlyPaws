@@ -105,8 +105,6 @@ const Signup = () => {
     </div>
   </div>
 </section>
-
-
       )}
       {error && (
         <div>
