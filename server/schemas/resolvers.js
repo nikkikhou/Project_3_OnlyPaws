@@ -5,8 +5,27 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
 
+    profiles: async () => {
+      return Profile.find();
+    },
 
-    
+    profile: async (parent, { profileId }) => {
+      return Profile.findOne({ _id: profileId });
+    },
+    users: async () => {
+      return User.find().populate('posts');
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate('posts');
+    },
+    posts: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Post.find(params).sort({ createdAt: -1 });
+    },
+    post: async (parent, { postId }) => {
+      return Post.findOne({ _id: postId });
+    },
+        
     /// GETS ONE USER ///
     user: async (parent, { userId }, context) => {
       if (context.user) {
@@ -14,7 +33,6 @@ const resolvers = {
 
         return userData;
       }
-
       throw new AuthenticationError('Not logged in');
     },
 
