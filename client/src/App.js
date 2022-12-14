@@ -25,6 +25,7 @@ import Profile from './pages/Profile';
 import ProtectRoute from './components/ProtectRoute';
 
 import './App.css';
+import SinglePost from './pages/SinglePost';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -60,6 +61,10 @@ function App() {
             element={Auth.loggedIn() ? <Dashboard /> : <ProtectRoute />}
           />
           <Route path='/profile' element={<Profile />} />
+          <Route 
+                path="/posts/:postId" 
+                element={<SinglePost />}
+              />
         </Routes>
       </Router>
     </ApolloProvider>
