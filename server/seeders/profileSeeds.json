@@ -4,5 +4,11 @@
   "aboutMe": "I'm a chihuahua",
   "img": "",
   "post": []
-  }
+  },
+  {
+    "name": "Max",
+    "aboutMe": "I'm a chocolate lab",
+    "img": "",
+    "post": []
+    }
 ]
