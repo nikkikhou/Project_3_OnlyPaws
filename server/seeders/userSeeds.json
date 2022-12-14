@@ -5,5 +5,17 @@
         "password":"JG",
         "profile": []
 
+    },
+    {
+        "username":"Hannah",
+        "email":"Hannah@gmail.com",
+        "password":"HannahMontana",
+        "profile": []
+    },
+    {
+        "username":"Bob",
+        "email":"Ihaveabob@gmail.com",
+        "password":"Bobsrule",
+        "profile": []
     }
 ]

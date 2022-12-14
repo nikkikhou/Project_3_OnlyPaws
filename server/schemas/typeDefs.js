@@ -13,6 +13,7 @@ const typeDefs = gql`
   }
   type Profile {
     name: String
+    originalUser: String
     aboutMe: String
     img: String
     post: [Post]

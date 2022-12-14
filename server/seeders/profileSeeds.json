@@ -1,8 +1,42 @@
 [
   {
   "name": "Flaco",
+  "originalUser":"JG",
   "aboutMe": "I'm a chihuahua",
   "img": "",
-  "post": []
-  }
+  "posts": [
+
+    {
+      "postText": "I love naps!",
+      "postAuthor": "Flaco"
+    }
+
+  ]
+  },
+  {
+    "name": "Max",
+    "originalUser":"Hannah",
+    "aboutMe": "I'm a choclate lab!",
+    "img": "",
+    "posts": [
+
+      {
+        "postText": "Pets?!",
+        "postAuthor": "Max"
+      }
+    ]
+    },
+    {
+      "name": "Lucky",
+      "originalUser":"Bob",
+      "aboutMe": "I love the dog park!",
+      "img": "",
+      "posts": [
+  
+        {
+          "postText": "Did someone say outside?",
+          "postAuthor": "Lucky"
+        }
+      ]
+      }
 ]
