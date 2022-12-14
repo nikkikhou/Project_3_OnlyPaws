@@ -18,10 +18,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    profile: {
+    profile: [ 
+      {
       type: Schema.Types.ObjectId,
       ref: 'Profile',
-    }
+      }
+    ]
   },
   {
     toJSON: {
