@@ -11,6 +11,7 @@ const Signup = () => {
   const [formState, setFormState] = useState({
     username: '',
     email: '',
+    breed: '',
     password: '',
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
@@ -47,7 +48,7 @@ const Signup = () => {
       ) : (
 
 
-<section className="hero is-dark is-fullheight">
+<section className="hero is-info is-fullheight">
   <div className="hero-body">
     <div className="container">
       <div className="columns is-centered">
@@ -72,6 +73,17 @@ const Signup = () => {
               name='email'
               type='text'
               value={formState.email}
+              onChange={handleChange}
+            />           </div>
+            </div>
+             <div className="field">
+              <label for="" className="label">Breed</label>
+              <div className="control has-icons-left">
+              <input
+              placeholder='Breed'
+              name='Breed'
+              type='text'
+              value={formState.breed}
               onChange={handleChange}
             />           
             <span className="icon is-small is-left">

@@ -47,12 +47,15 @@ const Login = (props) => {
       ) : (
 
 
-<section className="hero is-dark is-fullheight">
+<section className="hero is-info is-fullheight">
   <div className="hero-body">
     <div className="container">
       <div className="columns is-centered">
         <div className="column is-2-tablet ">
           <form onSubmit={handleFormSubmit} className="box login-form">
+            <div>Welcome back!
+
+            </div>
             <div className="field">
               <label for="" className="label">Email</label>
               <div className="control has-icons-left">
@@ -72,7 +75,7 @@ const Login = (props) => {
               <label for="" class="label">Password</label>
               <div className="control has-icons-left">
               <input
-              placeholde='Password'
+              placeholder='Password'
               name='password'
               type='password'
               value={formState.password}
