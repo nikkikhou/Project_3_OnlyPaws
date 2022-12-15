@@ -5,16 +5,18 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('profiles');
+      return User.find().populate('profile');
     },    
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('profiles');
+      return User.findOne({ username }).populate('profile');
     }, 
     profiles: async () => {
       return Profile.find();
     },
     profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
+    return Profile.findOne({ _id: profileId }).populate('posts');
+      // const params = _id ? { _id } : {};
+      // return Profile.find(params).sort({ createdAt: -1 });
     },
     me: async (parent, args, context) => {
       if (context.user) {
