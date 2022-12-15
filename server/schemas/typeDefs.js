@@ -16,7 +16,7 @@ const typeDefs = gql`
     originalUser: String
     aboutMe: String
     img: String
-    post: [Post]
+    posts: [Posts]
   }
   type Posts {
     _id: ID
@@ -28,7 +28,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    profile(username: String): [Profile]
+    profiles(username: String): [Profile]
     profile(postId: ID!): Profile
     me: User
 
