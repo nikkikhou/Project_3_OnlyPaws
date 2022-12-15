@@ -12,6 +12,7 @@ const typeDefs = gql`
     user: User
   }
   type Profile {
+    _id: ID
     name: String
     originalUser: String
     aboutMe: String
@@ -29,7 +30,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     profiles(username: String): [Profile]
-    profile(postId: ID!): Profile
+    profile(profileId: ID!): Profile
     me: User
 
   }
