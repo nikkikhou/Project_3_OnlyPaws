@@ -1,40 +1,41 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Post, Profile } = require('../models');
+const { User, Profile } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-
-    profiles: async () => {
-      return Profile.find();
-    },
-
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
-    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate('posts');
+    }, 
     users: async () => {
       return User.find().populate('posts');
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('posts');
+    profiles: async () => {
+      return Profile.find();
     },
-    posts: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Post.find(params).sort({ createdAt: -1 });
+    profile: async (parent, { profileId }) => {
+      return Profile.findOne({ _id: profileId });
     },
-    post: async (parent, { postId }) => {
-      return Post.findOne({ _id: postId });
-    },
+
+
+    
+    // posts: async (parent, { username }) => {
+    //   const params = username ? { username } : {};
+    //   return Post.find(params).sort({ createdAt: -1 });
+    // },
+    // post: async (parent, { postId }) => {
+    //   return Post.findOne({ _id: postId });
+    // },
         
     /// GETS ONE USER ///
-    user: async (parent, { userId }, context) => {
-      if (context.user) {
-        const userData = await (await User.findOne({ _id: userId }).select('-__v -password'));
+    // user: async (parent, { userId }, context) => {
+    //   if (context.user) {
+    //     const userData = await (await User.findOne({ _id: userId }).select('-__v -password'));
 
-        return userData;
-      }
-      throw new AuthenticationError('Not logged in');
-    },
+    //     return userData;
+    //   }
+    //   throw new AuthenticationError('Not logged in');
+    // },
 
     
   },
@@ -64,35 +65,39 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPost: async (parent, { postText, postAuthor }, context) => {
+    // create a post by taking in post text and the profile id set post author to user name
+    addPosts: async (parent, { profileId, postText }, context) => {
       if (context.user) {
-        const post = await Post.create({
-          postText,
-          postAuthor
-        });
-
-        await Profile.findOneAndUpdate(
-          { originalUser: postAuthor },
-          { $addToSet: { posts: post._id } }
+        return Profile.findOneAndUpdate(
+          { _id: profileId },
+          {
+            $addToSet: {
+              posts: { postText, postAuthor: context.user.username },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
         );
-
-        return post;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removePost: async (parent, { postId }, context) => {
+    // remove a post, takes in profile is and post id finds pulls - displays id and author
+    removePosts: async (parent, { profileId, postId }, context) => {
       if (context.user) {
-        const post = await Thought.findOneAndDelete({
-          _id: postId,
-          postAuthor: context.user.username,
-        });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { posts: post._id } }
+        return Profile.findOneAndUpdate(
+          { _id: profileId },
+          {
+            $pull: {
+              posts: {
+                _id: postId,
+                postAuthor: context.user.username,
+              },
+            },
+          },
+          { new: true }
         );
-
-        return post;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
