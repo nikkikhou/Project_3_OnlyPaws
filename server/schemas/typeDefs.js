@@ -18,7 +18,7 @@ const typeDefs = gql`
     img: String
     post: [Post]
   }
-  type Post {
+  type Posts {
     _id: ID
     postText: String
     postAuthor: String
@@ -26,26 +26,21 @@ const typeDefs = gql`
   }
 
   type Query {
-    user(userId: ID!): User
-
-    profile(userId: ID!): Profile
-    posts(username: String): [Post]
-    post(postId: ID!): Post
+    users: [User]
+    user(username: String!): User
+    profile(username: String): [Profile]
+    profile(postId: ID!): Profile
+    me: User
 
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-
-    # add img to profile
-    addImg(profileName: String, img: String): Profile
-    # add about me
-    addAboutMe(name: String, aboutMe: String): Profile
-    # add profile
-    addProfile(name: String, aboutMe: String, img: String): Profile
-    addPost(postText: String!): Post
-    removePost(postId: ID!): Post
+    addProfile(aboutMe: String): Profile
+    addPosts(profileId: ID!, postText: String): Profile
+    removeProfile(profileId: ID!): Profile
+    removePosts(profileId: ID!, postId: ID!): Profile
 
   }
 `;
