@@ -7,6 +7,9 @@ name: {
 // unique: true,
 // trim: true,
 },
+originalUser:{
+  type: String
+},
 aboutMe: {
   type: String,
   trim: true,
@@ -18,8 +21,21 @@ img:{
 },
 posts: [
   {
-    type: Schema.Types.ObjectId,
-    ref: 'Post',
+    postText: {
+      type: String,
+      required: true,
+      minlength: 1,
+      maxlength: 280,
+    },
+    postAuthor: {
+      type: String,
+      required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (timestamp) => dateFormat(timestamp),
+    },
   },
 ],
 });
