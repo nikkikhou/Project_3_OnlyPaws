@@ -75,6 +75,7 @@ const resolvers = {
     },
     // create a post by taking in post text and the profile id set post author to user name
     addPosts: async (parent, { profileId, postText }, context) => {
+      console.log("here")
       if (context.user) {
         return Profile.findOneAndUpdate(
           { _id: profileId },
