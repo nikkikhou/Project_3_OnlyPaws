@@ -70,40 +70,9 @@ const resolvers = {
       return { token, user };
     },
     // create a profile
-    addProfile: async (parent, { aboutMe }, context) => {
+    addProfile: async (parent, { name, aboutMe, img, originalUser }) => {
       // console.log("here")
-      if (context.user) {
-        const profile = await Profile.create({
-          name: context.user.username,
-          originalUser: context.user.username,
-          aboutMe,
-          img,
-          posts,
-        });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { profiles: profile._id } }
-        );
-
-        return profile;
-      }
-
-      // if (context.user) {
-      //   return Profile.findOneAndUpdate(
-      //     { _id: profileId },
-      //     {
-      //       $addToSet: {
-      //         posts: { postText, postAuthor: context.user.username },
-      //       },
-      //     },
-      //     {
-      //       new: true,
-      //       runValidators: true,
-      //     }
-      //   );
-      // }
-      throw new AuthenticationError("You need to be logged in!");
+      return await Profile.create({ name, aboutMe, img, originalUser});
     },
     // create a profile
     removeProfile: async (parent, { profileId }, context) => {

@@ -69,9 +69,9 @@ export const QUERY_SINGLE_POST = gql`
   }
 `;
 
-export const QUERY_PROFILE = gql`
-query Profiles($postId: ID!) {
-  profile(postId: $postId) {
+export const QUERY_PROFILES = gql`
+query Profiles($username: String) {
+  profiles(username: $username) {
     _id
     aboutMe
     img
@@ -86,6 +86,24 @@ query Profiles($postId: ID!) {
   }
 }
 `;
+export const QUERY_SINGLE_PROFILE = gql`
+query Profiles($profileId: ID!) {
+  profile(profileId: $profileId) {
+    _id
+    aboutMe
+    img
+    name
+    originalUser
+    posts {
+      _id
+      createdAt
+      postAuthor
+      postText
+    }
+  }
+}
+`;
+
 
 export const QUERY_ME = gql`
   query me {
