@@ -40,7 +40,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     #create resolver 
-    addProfile(aboutMe: String): Profile
+    addProfile(name: String, aboutMe: String, img: String, originalUser: String): Profile
     addPosts(profileId: ID!, postText: String, postAuthor: String): Posts
     #create resolver 
     removeProfile(profileId: ID!): Profile

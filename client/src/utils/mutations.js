@@ -27,8 +27,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_PROFILE = gql`
-mutation Mutation($aboutMe: String) {
-  addProfile(aboutMe: $aboutMe) {
+mutation Mutation($name: String, $aboutMe: String, $img: String, $originalUser: String) {
+  addProfile(name: $name, aboutMe: $aboutMe, img: $img, originalUser: $originalUser) {
     _id
     aboutMe
     img
