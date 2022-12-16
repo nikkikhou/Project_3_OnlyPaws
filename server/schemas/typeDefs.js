@@ -12,7 +12,7 @@ const typeDefs = gql`
     user: User
   }
   type Profile {
-    _id: ID
+    _id: ID!
     name: String
     originalUser: String
     aboutMe: String
@@ -20,7 +20,7 @@ const typeDefs = gql`
     posts: [Posts]
   }
   type Posts {
-    _id: ID
+    _id: ID!
     postText: String
     postAuthor: String
     createdAt: String
@@ -29,6 +29,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
+    #make sure they all have resolvers
     profiles(username: String): [Profile]
     profile(profileId: ID!): Profile
     me: User
@@ -38,8 +39,10 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    #create resolver 
     addProfile(aboutMe: String): Profile
-    addPosts(profileId: ID!, postText: String): Profile
+    addPosts(profileId: ID!, postText: String, postAuthor: String): Posts
+    #create resolver 
     removeProfile(profileId: ID!): Profile
     removePosts(profileId: ID!, postId: ID!): Profile
 
