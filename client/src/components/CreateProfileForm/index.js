@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_PROFILE } from '../../utils/mutations';
@@ -10,11 +10,6 @@ import { ADD_PROFILE } from '../../utils/mutations';
 // import { QUERY_PROFILES } from '../../utils/queries';
 
 const CreateProfileForm = () => {
-    // $name: String, $aboutMe: String, img: String, originalUser: String
-//   const [name, setNameText] = useState('');
-//   const [aboutMe, setAboutMeText] = useState('');
-//   const [img, setImgText] = useState('');
-//   const [originalUser, setOriginalUserText] = useState('');
 
     const [formState, setFormState] = useState({
         name: '',
@@ -55,7 +50,6 @@ const CreateProfileForm = () => {
         });
     };
 
-
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
@@ -69,23 +63,6 @@ const CreateProfileForm = () => {
         }
     };
 
-//   const handleChange = (event) => {
-//     const { name, value } = event.target;
-//     // const [aboutMe, value] = event.target;
-//     // const [img, value] = event.target;
-//     // const [originalUser, value] = event.target;
-
-//     if (name === 'nameText') {
-//       setNameText(value);
-//     }
-//     if (name === 'nameText') {
-//         setNameText(value);
-//     }
-//     if (name === 'nameText') {
-//         setNameText(value);
-//       }
-//   };
-
   return (
     <div>
       <h4>Create A Profile</h4>
@@ -97,32 +74,32 @@ const CreateProfileForm = () => {
             
             <input
               placeholder='Name'
-              name='Name'
+              name='name'
               type='text'
               value={formState.name}
               onChange={handleChange}
             /> 
             <input
               placeholder='About Me'
-              name='Name'
+              name='aboutMe'
               type='text'
               value={formState.aboutMe}
               onChange={handleChange}
             /> 
             <input
               placeholder='Upload a Profile photo'
-              name='Name'
+              name='img'
               type='text'
               value={formState.img}
               onChange={handleChange}
             />
             <input
               placeholder='My owner'
-              name='Name'
+              name='originalUser'
               type='text'
               value={formState.originalUser}
               onChange={handleChange}
-            /> 
+            />
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">

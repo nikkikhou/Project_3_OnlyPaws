@@ -18,7 +18,7 @@ import 'bulma/css/bulma.min.css';
 import Landing from './pages/Landing';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+// import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import CreateProfileForm from './pages//createProfile';
 

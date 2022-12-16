@@ -7,13 +7,13 @@ import CreateProfileForm from '../components/CreateProfileForm';
 
 // import { QUERY_PROFILES } from '../utils/queries';
 
-const Dashboard = () => {
+const CreateAProfile = () => {
 //   const { loading, data } = useQuery(QUERY_PROFILES);
 //   const posts = data?.posts || [];
 
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1>Create A Profile</h1>
       <button onClick={AuthService.logout}>Logout</button>
       <div className="flex-row justify-center">
         <div
@@ -37,4 +37,4 @@ const Dashboard = () => {
   )
 };
 
-export default Dashboard;
+export default CreateAProfile;
