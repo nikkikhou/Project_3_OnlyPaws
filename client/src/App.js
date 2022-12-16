@@ -20,6 +20,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
+import CreateProfileForm from './pages//createProfile';
 
 /// IMPORT COMPONENTS ///
 import ProtectRoute from './components/ProtectRoute';
@@ -58,13 +59,14 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route
             path='dashboard/:profileId'
-            element={Auth.loggedIn() ? <Dashboard /> : <ProtectRoute />}
+            element={Auth.loggedIn() ? <CreateProfileForm /> : <ProtectRoute />}
           />
           <Route path='/profile' element={<Profile />} />
           <Route 
                 path="/posts/:postId" 
                 element={<SinglePost />}
               />
+          <Route path='/CreateAProfile' element={<CreateProfileForm />} />
         </Routes>
       </Router>
     </ApolloProvider>
