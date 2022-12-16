@@ -5,10 +5,10 @@ import { useQuery } from '@apollo/client';
 import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
 
-import { QUERY_POSTS } from '../utils/queries';
+import { QUERY_PROFILE } from '../utils/queries';
 
 const Dashboard = () => {
-  const { loading, data } = useQuery(QUERY_POSTS);
+  const { loading, data } = useQuery(QUERY_PROFILE);
   const posts = data?.posts || [];
 
   return (
