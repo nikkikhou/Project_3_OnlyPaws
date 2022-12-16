@@ -11,7 +11,7 @@ const Signup = () => {
   const [formState, setFormState] = useState({
     username: '',
     email: '',
-    breed: '',
+    // breed: '',
     password: '',
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
@@ -29,6 +29,7 @@ const Signup = () => {
   /// HANDLE SUBMISSION OF FORM ///
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    console.log(formState);
 
     try {
       const { data } = await addUser({
@@ -37,7 +38,7 @@ const Signup = () => {
 
       Auth.login(data.addUser.token, data.addUser.user._id);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     };
   };
 
