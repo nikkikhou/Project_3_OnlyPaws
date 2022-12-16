@@ -41,7 +41,7 @@ const PostForm = () => {
       const { data } = await addPost({
         variables: {
           postText,
-          posttAuthor: Auth.getProfile().data.username,
+          postAuthor: Auth.getUser().data.username,
         },
       });
 
@@ -54,7 +54,7 @@ const PostForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'thoughtText' && value.length <= 280) {
+    if (name === 'postText' && value.length <= 280) {
       setPostText(value);
       setCharacterCount(value.length);
     }
@@ -79,7 +79,7 @@ const PostForm = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="thoughtText"
+                name="postText"
                 placeholder="Here's a new thought..."
                 value={postText}
                 className="form-input w-100"
