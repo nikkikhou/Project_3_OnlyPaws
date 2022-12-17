@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
+// import { Link } from 'react-router-dom';
+
+
 
 import { ADD_PROFILE } from '../../utils/mutations';
 // import { QUERY_PROFILES, QUERY_ME } from '../../utils/queries';
@@ -19,26 +22,6 @@ const CreateProfileForm = () => {
 
    const [addProfile, { error }] = useMutation(ADD_PROFILE);
 
-    // , {
-//     update(cache, { data: { addProfile } }) {
-//         try {
-//           const { profiles } = cache.readQuery({ query: QUERY_PROFILES });
-//           cache.writeQuery({
-//             query: QUERY_PROFILES,
-//             data: { profiles: [addProfile, ...profiles] },
-//           });
-//         } catch (e) {
-//           console.error(e);
-//         }
-  
-//         // // update me object's cache
-//         // const { me } = cache.readQuery({ query: QUERY_ME });
-//         // cache.writeQuery({
-//         //   query: QUERY_ME,
-//         //   data: { me: { ...me, profiles: [...me.profiles, addProfile] } },
-//         // });
-//     },
-//   });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -51,6 +34,7 @@ const CreateProfileForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        window.location.href = "/Dashboard"
         try {
         const { data } = await addProfile({
             variables: { ...formState },
