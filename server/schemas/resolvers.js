@@ -70,9 +70,17 @@ const resolvers = {
       return { token, user };
     },
     // create a profile
-    addProfile: async (parent, { name, aboutMe, img, originalUser }) => {
-      // console.log("here")
-      return await Profile.create({ name, aboutMe, img, originalUser});
+    addProfile: async (parent, { name, aboutMe, img, originalUser }, context) => {
+      if (context.user) {
+        const profile = await Profile.create({ name, aboutMe, img, originalUser});
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { profile: profile._id } }
+        );
+
+        return profile
+      };
     },
     // create a profile
     removeProfile: async (parent, { profileId }, context) => {
