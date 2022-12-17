@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_PROFILE } from '../../utils/mutations';
@@ -52,6 +52,7 @@ const CreateProfileForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        Navigate('/Dashboard');
 
         try {
         const { data } = await addProfile({
@@ -61,6 +62,7 @@ const CreateProfileForm = () => {
         } catch (err) {
         console.error(err);
         }
+
     };
 
   return (
