@@ -58,7 +58,7 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
           <Route
-            path='dashboard/:profileId'
+            path='/createprofile'
             element={Auth.loggedIn() ? <CreateProfileForm /> : <ProtectRoute />}
           />
           <Route path='/profile' element={<Profile />} />
@@ -66,7 +66,6 @@ function App() {
                 path="/posts/:postId" 
                 element={<SinglePost />}
               />
-          <Route path='/CreateAProfile' element={<CreateProfileForm />} />
         </Routes>
       </Router>
     </ApolloProvider>
