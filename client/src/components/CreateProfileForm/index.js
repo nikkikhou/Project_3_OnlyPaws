@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_PROFILE } from '../../utils/mutations';
@@ -52,7 +51,6 @@ const CreateProfileForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
         try {
         const { data } = await addProfile({
             variables: { ...formState },
@@ -61,6 +59,7 @@ const CreateProfileForm = () => {
         } catch (err) {
         console.error(err);
         }
+
     };
 
   return (

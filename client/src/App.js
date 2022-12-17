@@ -62,6 +62,8 @@ function App() {
             element={Auth.loggedIn() ? <CreateProfileForm /> : <ProtectRoute />}
           />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/Dashboard' element={<Profile />} />
+
           <Route 
                 path="/posts/:postId" 
                 element={<SinglePost />}
