@@ -18,7 +18,7 @@ import 'bulma/css/bulma.min.css';
 import Landing from './pages/Landing';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-// import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import CreateProfileForm from './pages//createProfile';
 
@@ -62,7 +62,8 @@ function App() {
             element={Auth.loggedIn() ? <CreateProfileForm /> : <ProtectRoute />}
           />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/Dashboard' element={<Profile />} />
+          <Route path='/Dashboard' element={Auth.loggedIn() ? <Dashboard /> : <ProtectRoute />}
+ />
 
           <Route 
                 path="/posts/:postId" 
