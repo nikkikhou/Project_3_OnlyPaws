@@ -58,17 +58,6 @@ query User($username: String!) {
 //   }
 // `;
 
-export const QUERY_SINGLE_POST = gql`
-  query getSinglePost($postId: ID!) {
-    post(postId: $postId) {
-      _id
-      postText
-      postAuthor
-      createdAt
-    }
-  }
-`;
-
 export const QUERY_PROFILES = gql`
 query Profiles($username: String) {
   profiles(username: $username) {
@@ -102,6 +91,17 @@ query Profiles($profileId: ID!) {
     }
   }
 }
+`;
+
+export const QUERY_SINGLE_POST = gql`
+  query getSinglePost($postId: ID!) {
+    post(postId: $postId) {
+      _id
+      postText
+      postAuthor
+      createdAt
+    }
+  }
 `;
 
 
