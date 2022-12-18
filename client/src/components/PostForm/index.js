@@ -20,7 +20,7 @@ const PostForm = ({profileId}) => {
     try {
       const { data } = await addPost({
         variables: {
-          profileId,
+          profileId: Auth.getUser().data._id,
           postText,
           postAuthor: Auth.getUser().data.username,
         },
