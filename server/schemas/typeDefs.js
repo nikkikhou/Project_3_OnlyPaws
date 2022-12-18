@@ -17,7 +17,7 @@ const typeDefs = gql`
     originalUser: String
     aboutMe: String
     img: String
-    posts: [Posts]
+    posts: [Posts]!
   }
   type Posts {
     _id: ID!
@@ -41,7 +41,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     #create resolver 
     addProfile(name: String, aboutMe: String, img: String, originalUser: String): Profile
-    addPosts(profileId: ID!, postText: String, postAuthor: String): Posts
+    addPosts(profileId: ID!, postText: String!): Profile
     #create resolver 
     removeProfile(profileId: ID!): Profile
     removePosts(profileId: ID!, postId: ID!): Profile

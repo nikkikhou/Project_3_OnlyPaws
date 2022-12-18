@@ -47,13 +47,18 @@ mutation Mutation($name: String, $aboutMe: String, $img: String, $originalUser: 
 
 
 export const ADD_POST = gql`
-mutation Mutation($profileId: ID!, $postText: String, $postAuthor: String) {
-addPosts(profileId: $profileId, postText: $postText, postAuthor: $postAuthor) {
+mutation Mutation($profileId: ID!, $postText: String!) {
+  addPosts(profileId: $profileId, postText: $postText) {
+    _id
+    name
+    originalUser
+    aboutMe
+    img
+    posts {
       _id
       postText
-      postAuthor
       createdAt
-  
     }
   }
+}
 `;
