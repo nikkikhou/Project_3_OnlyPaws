@@ -8,25 +8,21 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Auth from './utils/auth';
-
 /// ADDED BULMA /// 
 import 'bulma/css/bulma.min.css';
+import './App.css';
+
 
 
 /// IMPORT PAGES ///
-import Landing from './pages/Landing';
+import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+// import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import CreateProfileForm from './pages//createProfile';
-
-/// IMPORT COMPONENTS ///
-import ProtectRoute from './components/ProtectRoute';
-
-import './App.css';
 import SinglePost from './pages/SinglePost';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -54,21 +50,12 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Routes>
-          <Route path='/' element={<Landing />} />
+          <Route path='/' element={<Home />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
-          <Route
-            path='/createprofile'
-            element={Auth.loggedIn() ? <CreateProfileForm /> : <ProtectRoute />}
-          />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/Dashboard' element={Auth.loggedIn() ? <Dashboard /> : <ProtectRoute />}
- />
-
-          <Route 
-                path="/posts/:postId" 
-                element={<SinglePost />}
-              />
+          <Route path='/createprofile' element={<CreateProfileForm />} />
+          <Route path='/me' element={<Profile />} />
+          <Route path="/posts/:postId"  element={<SinglePost />} />
         </Routes>
       </Router>
     </ApolloProvider>

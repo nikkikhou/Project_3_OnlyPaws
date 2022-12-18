@@ -1,6 +1,8 @@
 import React from 'react';
 import AuthService from '../utils/auth';
 import { useQuery } from '@apollo/client';
+import { useParams } from 'react-router-dom';
+
 
 import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
@@ -8,8 +10,12 @@ import PostForm from '../components/PostForm';
 import { QUERY_PROFILES } from '../utils/queries';
 
 const Dashboard = () => {
-  const { loading, data } = useQuery(QUERY_PROFILES);
-  const posts = data?.posts || [];
+  const { profileId } = useParams();
+  const { loading, data } = useQuery(QUERY_PROFILES, {
+    // pass URL parameter
+    variables: { profileId: profileId },
+  });
+  const profile = data?.profile || [];
 
   return (
     <div>
@@ -27,7 +33,7 @@ const Dashboard = () => {
             <div>Loading...</div>
           ) : (
             <PostList
-              posts={posts}
+              // posts={posts}
               title="Barks go here..."
             />
           )}
@@ -36,5 +42,6 @@ const Dashboard = () => {
     </div>
   )
 };
+
 
 export default Dashboard;
