@@ -34,11 +34,13 @@ const CreateProfileForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        window.location.href = "/Dashboard"
+        
+       
         try {
         const { data } = await addProfile({
             variables: { ...formState },
         });
+         window.location.href = `/`
 
         } catch (err) {
         console.error(err);
