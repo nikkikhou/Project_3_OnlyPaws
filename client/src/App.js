@@ -22,6 +22,8 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import CreateProfileForm from './pages//createProfile';
 import SinglePost from './pages/SinglePost';
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 
 const httpLink = createHttpLink({
@@ -49,6 +51,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <Navbar/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/signup' element={<Signup />} />
@@ -57,6 +60,7 @@ function App() {
           <Route path='/me' element={<Profile />} />
           <Route path="/posts/:postId"  element={<SinglePost />} />
         </Routes>
+        <Footer/>
       </Router>
     </ApolloProvider>
   );
