@@ -1,63 +1,47 @@
-# MERN w/ GraphQL Boilerplate
+# Project 3: OnlyPaws by overREACTors
 
-MERN stack boiler plate with Sign Up / Login / Logout functionality using GraphQL, Apollo Server, and Apollo Client. Can Sign Up / Login and be taken to a Dashboard where user can logout using functionality set up in client/utils/auth.js. No styling, just basic Sign Up / Login / Logout functionality. Also uses React Router.
+## Description
+Welcome to OnlyPaws! OnlyPaws is a full-stack web application built using the MERN stack (MongoDB, Express, React, and Node.js) and following the MVC (Model-View-Controller) pattern. It is a social media platform for your furry friends (only)! 
 
-## Instructions:
+With OnlyPaws, users can create a profile of their pets, connect with other pets and form communities, find and share resources such as local veterinarians, pet stores, and dog parks, and participate in discussions related to pets
 
-Follow along below to install the latest dependencies, or ``` npm install ``` in the root directory for the versions included in the current package.json files.
-
-### Client Folder:
-
-- delete the package-lock.json
-- in the package.json, delete all dependencies
-- navigate to the client folder
-- run the following command:
-
-```
-  npm install @apollo/client graphql jwt-decode react react-dom react-router-dom react-scripts web-vitals @testing-library/jest-dom @testing-library/react @testing-library/user-event
-
-```
-
-- while in the client folder, run ```npm start``` to make sure there are no errors
-
-### Server Folder: 
-
-- delete the package-lock.json
-- in the package.json, delete all dependencies
-- navigate to the server folder
-- run the following command:
-
-```
-npm install apollo-server-express bcrypt express graphql jsonwebtoken mongoose dotenv
-
-```
-
-- in the connection.js (server/config/connection.js) make sure to change the name of the database to the name of your corresponding database
-
-- navigate to server folder, run ```npm start``` to make sure there are no errors
+We hope you enjoy using OnlyPaws and that it helps you connect with other pet lovers and find the resources you need for your pets.
 
 
-### Root Directory: 
+1. [Installations](#installations)
+2. [Usage](#usage)
+3. [Contributing](#contributing)
+4. [Tests](#tests)
+5. [Questions](#questions)
 
-- install concurrently as a dev dependency:
+## Installations
+This app is deployeed on Heroku!<br>
+[OnlyPaws](link once its been deployed)
 
-```
-npm i concurrently -D
-
-```
-
-### Side Notes:
-
-- you'll eventually want to change the favicon.ico in the client/public folder (this is the icon shown on the tab of the browser)
-- you'll want to change the title in the client/public/index.html from "MERN" to the name of your application
-- you'll also want to change the "name" in the root package.json from "mern-boiler" to the name of your application
-- if you are having issues access the Apollo Sandbox, inside server/server.js line 25, remove the "*" after the "/" - from ``` app.get('/*') ``` to ``` app.get('/') ```
+## Usage
+Technologies utilized in this app include: <br>
+![MongoDB](https://img.shields.io/badge/-Mongodb-black?style=flat-square&logo=mongodb)<br>
+![Express](https://img.shields.io/badge/-Express-black?style=flat-square&logo=express)<br>
+![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)<br>
+![Node](https://img.shields.io/badge/-Node-black?style=flat-square&logo=node)<br>
+![Bulma](https://img.shields.io/badge/-Bulma-black?style=flat-square&logo=bulma)<br>
 
 
-### Final Check:
- - in the root directory, run `npm run develop`
+## Contributing
+If you have any good ideas or changes you want to share, you can create a pull request or add issues to the repository. You can also contact us using the information in the [Questions](#questions) section.<br />
+To create a pull request:
+1. Clone the repository to your local environment using the `git clone SSH-key` command.
+2. Create a branch using `git checkout -b branch-name`.
+3. Add the changes using `git add -A`.
+4. Commit the changes using `git commit -m "message here"`.
+5. Push the changes using `git push origin branch-name`.
+6. Create a pull request on GitHub.
 
-### Video Demonstration:
+## Screenshots and Link
+will upload screen shots at a later time.
 
-[Video Link](https://watch.screencastify.com/v/C5vZrOS3Hq7FGSvvaRPB)
- 
+## Questions
+If you have any questions regarding this project, reach out to us via these links:
+* [Jesus Gonzalez](https://github.com/jesusgonzalez05)<br>
+* [Nikki Khouvongsavanh](https://github.com/nikkikhou)<br>
+* [Jordan Colubiale](https://github.com/Jordancolubiale)<br>
