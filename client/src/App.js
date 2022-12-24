@@ -67,7 +67,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/login' element={<Login />} />
           <Route path='/createprofile' element={<CreateProfileForm />} />
-          <Route path='/me' element={<Profile />} />
+          <Route path='/profiles/:username' element={<Profile />} />
           <Route path="/posts/:postId"  element={<SinglePost />} />
         </Routes>
         <Footer/>
