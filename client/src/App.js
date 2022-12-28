@@ -16,12 +16,21 @@ import './App.css';
 
 /// IMPORT PAGES ///
 import Home from './pages/Home';
+// ^ main page that says welcome to only paws - our branding page
 import Signup from './pages/Signup';
+// ^ page that allows user to sign up
 import Login from './pages/Login';
-// import Dashboard from './pages/Dashboard';
+// ^ page that allows a returning user to login
+import Dashboard from './pages/Dashboard';
+// ^ once user is logged in this is where user will see posts 
 import Profile from './pages/Profile';
+// ^ where user can acess their profile / edit it 
 import CreateProfileForm from './pages//createProfile';
+// ^ user is directed to this page when they first sign up 
 import SinglePost from './pages/SinglePost';
+// ^ page/ modal where user can create a post
+
+// import components
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
@@ -55,6 +64,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/login' element={<Login />} />
           <Route path='/createprofile' element={<CreateProfileForm />} />
           <Route path='/me' element={<Profile />} />
