@@ -13,18 +13,11 @@ const ProfileList = ({ profiles, title }) => {
           profiles.map((profile) => (
             <div key={profile._id} className="col-12 col-xl-6">
               <div className="card mb-3">
-                <h4 className="card-header bg-dark text-light p-2 m-0">
-                  {profile.name} <br />
-                  <p>{profile.aboutMe}</p>
-                  <p>{profile.img}</p>
-                  {/* <p>{profile.posts}</p> */}
-
-                  {/* <span className="text-white" style={{ fontSize: '1rem' }}>
-                    currently has {profile.skills ? profile.skills.length : 0}{' '}
-                    endorsed skill
-                    {profile.skills && profile.skills.length === 1 ? '' : 's'}
-                  </span> */}
+                <h4>
+                  {profile.name}
                 </h4>
+                <p >"{profile.aboutMe}"</p>
+                <p>{profile.img}</p>
               </div>
             </div>
           ))}
