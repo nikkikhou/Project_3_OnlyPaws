@@ -1,6 +1,6 @@
 import React from 'react';
 // import ProfileList from '../components/ProfileList';
-import PostList from '../components/PostList';
+// import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
 
 import { useParams } from 'react-router-dom';
@@ -11,6 +11,8 @@ import { QUERY_SINGLE_PROFILE } from '../utils/queries';
 const SingleThought = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const { profileId } = useParams();
+
+  console.log(useParams)
 
   const { loading, data } = useQuery(QUERY_SINGLE_PROFILE, {
     // pass URL parameter
@@ -25,10 +27,7 @@ const SingleThought = () => {
   return (
     <div className="my-3">
       <h3 className="card-header bg-dark text-light p-2 m-0">
-        {profile.name} <br />
-        {/* <span style={{ fontSize: '1rem' }}>
-          had this thought on {thought.createdAt}
-        </span> */}
+        {profile.name} 
       </h3>
       <div className="bg-light py-4">
         <blockquote

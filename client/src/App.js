@@ -27,7 +27,7 @@ import Profile from './pages/Profile';
 // ^ where user can acess their profile / edit it 
 import CreateProfileForm from './pages//createProfile';
 // ^ user is directed to this page when they first sign up 
-import SinglePost from './pages/SinglePost';
+// import SinglePost from './pages/SinglePost';
 // ^ page/ modal where user can create a post
 
 // import components
@@ -67,8 +67,8 @@ function App() {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/login' element={<Login />} />
           <Route path='/createprofile' element={<CreateProfileForm />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path="/post"  element={<SinglePost />} />
+          <Route path='/profile/:profileId' element={<Profile />} />
+          {/* <Route path="/post"  element={<SinglePost />} /> */}
         </Routes>
         <Footer/>
       </Router>
