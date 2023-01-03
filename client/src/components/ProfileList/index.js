@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const ProfileList = ({ profiles, title }) => {
   if (!profiles.length) {
@@ -18,6 +20,12 @@ const ProfileList = ({ profiles, title }) => {
                 </h4>
                 <p >"{profile.aboutMe}"</p>
                 <p>{profile.img}</p>
+                <Link
+                  className="btn btn-block btn-squared btn-light text-dark"
+                  to={`/profile/${profile._id}`}
+                >
+                  View my profile here.
+                </Link>
               </div>
             </div>
           ))}
