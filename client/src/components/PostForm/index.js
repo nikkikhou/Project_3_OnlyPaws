@@ -3,61 +3,53 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_POST } from '../../utils/mutations';
-// import { QUERY_POSTS } from '../../utils/queries';
 
-import Auth from '../../utils/auth';
+// import Auth from '../../utils/auth';
 
-const PostForm = ({profileId}) => {
+const PostForm = ({ profileId }) => {
+  const [postText, setPostText] = useState('');
+  const [characterCount, setCharacterCount] = useState(0);
 
-  const [postState, setPostState] = useState({
-    postText: '',
-    postAuthor: '',
-});
-  // const [postText, setPostText] = useState('');
-
-  // const [characterCount, setCharacterCount] = useState(0);
-
-  const [addPost, { error }] = useMutation(ADD_POST);
-
-
-  const handleChange = (e) => {
-    const { postText, value } = e.target;
-
-    setPostState({
-      ...postState,
-      [postText]: value,
-      });
-  };
+  const [addPosts, { error }] = useMutation(ADD_POST);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    
-   
+
     try {
-    const { data } = await addPost({
-        variables: { ...postState },
-    });
-     window.location.href = `/`
+      const { data } = await addPosts({
+        variables: {
+          profileId,
+          postText,
+          // postAuthor: Auth.getProfile().data.username,
+        },
+      });
 
+      setPostText('');
     } catch (err) {
-    console.error(err);
+      console.error(err);
     }
+  };
 
-};
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === 'postText' && value.length <= 280) {
+      setPostText(value);
+      setCharacterCount(value.length);
+    }
+  };
 
   return (
     <div>
-      <h3>What's on your mind?</h3>
-
-      {Auth.loggedIn() ? (
-        <>
-          {/* <p
+      <h4>Wanna create a post?</h4>
+          <p
             className={`m-0 ${
               characterCount === 280 || error ? 'text-danger' : ''
             }`}
           >
             Character Count: {characterCount}/280
-          </p> */}
+            {error && <span className="ml-2">{error.message}</span>}
+          </p>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
@@ -65,8 +57,8 @@ const PostForm = ({profileId}) => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="postText"
-                placeholder="Here's a new thought..."
-                value={postState.postText}
+                placeholder="Add your post..."
+                value={postText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -78,19 +70,11 @@ const PostForm = ({profileId}) => {
                 Add Post
               </button>
             </div>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
-              </div>
-            )}
           </form>
-        </>
-      ) : (
-        <p>
+        {/* <p>
           You need to be logged in to share your thoughts. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
-      )}
+        </p> */}
     </div>
   );
 };
