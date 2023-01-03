@@ -1,84 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-// const PostList = ({
-//   posts,
-//   title,
-//   showTitle = true,
-//   showUsername = true,
-// }) => {
-//   if (!posts.length) {
-//     return <h3>No Thoughts Yet</h3>;
-//   }
-const PostList = ({ posts, title }) => {
+const PostList = ({ posts = [{}] }) => {
   if (!posts.length) {
-    return <h3>No Thoughts Yet</h3>;
+    return <h3>No Posts Yet</h3>;
   }
   return (
-    <div>
-      <h3>{title}</h3>
+    <>
+      <h3
+        className="p-5 display-inline-block"
+        style={{ borderBottom: '1px dotted #1a1a1a' }}
+      >
+        Posts
+      </h3>
+      <div className="flex-row my-4">
       {posts &&
-        posts.map((post) => (
-          <div key={post._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
-              {post.postAuthor} <br />
-              <span style={{ fontSize: '1rem' }}>
-                had this thought on {post.createdAt}
-              </span>
-            </h4>
-            <div className="card-body bg-light p-2">
-              <p>{post.postText}</p>
+          posts.map((posts) => (
+            <div key={posts._id} className="col-12 mb-3 pb-3">
+              <div className="p-3 bg-dark text-light">
+                <h5 className="card-header">
+                  {posts.postAuthor} commented{' '}
+                  <span style={{ fontSize: '0.825rem' }}>
+                    on {posts.createdAt}
+                  </span>
+                </h5>
+                <p className="card-body">{posts.postText}</p>
+              </div>
             </div>
-            <Link
-              className="btn btn-primary btn-block btn-squared"
-              to={`/posts/${post._id}`}
-            >
-              Join the discussion on this thought.
-            </Link>
-          </div>
-        ))}
-    </div>
+          ))}
+      </div>
+    </>
   );
 };
-
-//   return (
-//     <div>
-//       {showTitle && <h3>{title}</h3>}
-//       {posts &&
-//         posts.map((post) => (
-//           <div key={post._id} className="card mb-3">
-//             <h4 className="card-header bg-primary text-light p-2 m-0">
-//               {showUsername ? (
-//                 <Link
-//                   className="text-light"
-//                   to={`/profiles/${post.postAuthor}`}
-//                 >
-//                   {post.postAuthor} <br />
-//                   <span style={{ fontSize: '1rem' }}>
-//                     had this thought on {post.createdAt}
-//                   </span>
-//                 </Link>
-//               ) : (
-//                 <>
-//                   <span style={{ fontSize: '1rem' }}>
-//                     You had this thought on {post.createdAt}
-//                   </span>
-//                 </>
-//               )}
-//             </h4>
-//             <div className="card-body bg-light p-2">
-//               <p>{post.postText}</p>
-//             </div>
-//             <Link
-//               className="btn btn-primary btn-block btn-squared"
-//               to={`/posts/${post._id}`}
-//             >
-//               Join the discussion on this thought.
-//             </Link>
-//           </div>
-//         ))}
-//     </div>
-//   );
-// };
 
 export default PostList;
