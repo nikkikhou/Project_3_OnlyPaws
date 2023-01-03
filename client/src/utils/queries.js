@@ -93,9 +93,6 @@ query Profiles($profileId: ID!) {
 }
 `;
 
-
-
-
 export const QUERY_ME = gql`
   query me {
     me {

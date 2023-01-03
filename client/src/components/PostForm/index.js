@@ -8,38 +8,42 @@ import { ADD_POST } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 const PostForm = ({profileId}) => {
-  const [postText, setPostText] = useState('');
 
-  const [characterCount, setCharacterCount] = useState(0);
+  const [postState, setPostState] = useState({
+    postText: '',
+    postAuthor: '',
+});
+  // const [postText, setPostText] = useState('');
+
+  // const [characterCount, setCharacterCount] = useState(0);
 
   const [addPost, { error }] = useMutation(ADD_POST);
 
+
+  const handleChange = (e) => {
+    const { postText, value } = e.target;
+
+    setPostState({
+      ...postState,
+      [postText]: value,
+      });
+  };
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    
+   
     try {
-      const { data } = await addPost({
-        variables: {
-          profileId: Auth.getUser().data._id,
-          postText,
-          postAuthor: Auth.getUser().data.username,
-        },
-      });
+    const { data } = await addPost({
+        variables: { ...postState },
+    });
+     window.location.href = `/`
 
-      setPostText('');
     } catch (err) {
-      console.error(err);
+    console.error(err);
     }
-  };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    if (name === 'postText' && value.length <= 280) {
-      setPostText(value);
-      setCharacterCount(value.length);
-    }
-  };
+};
 
   return (
     <div>
@@ -47,13 +51,13 @@ const PostForm = ({profileId}) => {
 
       {Auth.loggedIn() ? (
         <>
-          <p
+          {/* <p
             className={`m-0 ${
               characterCount === 280 || error ? 'text-danger' : ''
             }`}
           >
             Character Count: {characterCount}/280
-          </p>
+          </p> */}
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
@@ -62,7 +66,7 @@ const PostForm = ({profileId}) => {
               <textarea
                 name="postText"
                 placeholder="Here's a new thought..."
-                value={postText}
+                value={postState.postText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}

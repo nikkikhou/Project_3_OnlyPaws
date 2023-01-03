@@ -67,8 +67,8 @@ function App() {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/login' element={<Login />} />
           <Route path='/createprofile' element={<CreateProfileForm />} />
-          <Route path='/me' element={<Profile />} />
-          <Route path="/posts/:postId"  element={<SinglePost />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path="/post"  element={<SinglePost />} />
         </Routes>
         <Footer/>
       </Router>
