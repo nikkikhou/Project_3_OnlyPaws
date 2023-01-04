@@ -85,7 +85,7 @@ const resolvers = {
     // Delete a profile
     removeProfile: async (parent, { profileId }, context) => {
       if (context.user) {
-        const profile = await Profile.create({
+        const profile = await Profile.findOneAndDelete({
           _id: profileId,
           name: context.user.username,
           originalUser: context.user.username,

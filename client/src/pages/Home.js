@@ -6,7 +6,7 @@ const Home = () => {
   return (
     // 
     <body>
-      <section class="hero is-info is-fullheight">
+      {/* <section class="hero is-info is-fullheight">
         <div class="hero-head">
           <nav class="navbar">
             <div class="container">
@@ -21,13 +21,13 @@ const Home = () => {
                 <div class="navbar-end">
                   <span class="navbar-item">
                   <Link class="is-size-3 has-text-centered" to='/login' style={{ textDecoration: 'none' }}>
-        <h2>Login</h2>
-      </Link>
+                    <h2>Login</h2>
+                  </Link>
                   </span>
                   <span class="navbar-item">
                   <Link class="is-size-3 has-text-centered" to='/signup' style={{ textDecoration: 'none' }}>
-        <h2>Sign Up</h2>
-      </Link>
+                    <h2>Sign Up</h2>
+                  </Link>
                   </span>
                 </div>
               </div>
@@ -47,8 +47,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
-      <script async type="text/javascript" src="../js/bulma.js"></script>
+      </section> */}
     </body>
   )
 };
