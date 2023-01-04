@@ -11,6 +11,36 @@ padding: .25rem;
 padding: .25rem;
 }
 
+/* Home page */
+#walking-dog {
+height: 100vh;
+width: 100vw;
+position:absolute;
+z-index:-999;
+}
+#home-container{
+height: 50vh;
+width: 100vw;
+position: absolute;
+overflow: hidden;
+z-index: 100;
+display: flex;
+flex-direction: row;
+justify-content: center;
+margin-top: 3rem;
+}
+#walking{
+position: absolute;
+z-index: -1;
+height: 100vh;
+width: 100vw;
+display: flex;
+flex-direction: row;
+justify-content: center;
+background-color: burlywood;
+}
+
+
 
 /* landing.js */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
