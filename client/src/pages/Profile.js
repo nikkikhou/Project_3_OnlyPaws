@@ -1,6 +1,5 @@
 import React from 'react';
-// import ProfileList from '../components/ProfileList';
-// import PostList from '../components/PostList';
+import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
 
 import { useParams } from 'react-router-dom';
@@ -8,11 +7,9 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_PROFILE } from '../utils/queries';
 
-const SingleThought = () => {
+const SingleProfile = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const { profileId } = useParams();
-
-  console.log(useParams)
 
   const { loading, data } = useQuery(QUERY_SINGLE_PROFILE, {
     // pass URL parameter
@@ -46,10 +43,10 @@ const SingleThought = () => {
         <PostForm profileId={profile._id} />
       </div>
       <div className="my-5">
-        {/* <PostList comments={profile.posts} /> */}
+        <PostList posts={profile.posts} />
       </div>
     </div>
   );
 };
 
-export default SingleThought;
+export default SingleProfile;
