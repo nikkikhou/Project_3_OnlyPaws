@@ -1,11 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Walking from '../components/Walking.json';
+import Lottie from 'lottie-react';
 
 
 const Home = () => {
   return (
     // 
-    <body>
+    <div id='home-page'>
+      <div id='walking'>
+      <Lottie id="walking-dog" animationData={Walking} />
+      </div>
+      <div id="home-container" class="tile is-ancestor">
+        <div class="tile is-3 is-vertical is-parent">
+          <div class="tile is-child box">
+            <p class="title">One</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+          </div>
+        </div>
+      </div>
       {/* <section class="hero is-info is-fullheight">
         <div class="hero-head">
           <nav class="navbar">
@@ -48,7 +61,7 @@ const Home = () => {
           </div>
         </div>
       </section> */}
-    </body>
+      </div>
   )
 };
 

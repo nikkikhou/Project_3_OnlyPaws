@@ -31,7 +31,7 @@ import CreateProfileForm from './pages//createProfile';
 // ^ page/ modal where user can create a post
 
 // import components
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Navbar from "./components/Nav/Navbar";
 
 
@@ -70,7 +70,7 @@ function App() {
           <Route path='/profile/:profileId' element={<Profile />} />
           {/* <Route path="/post"  element={<SinglePost />} /> */}
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
       </Router>
     </ApolloProvider>
   );
