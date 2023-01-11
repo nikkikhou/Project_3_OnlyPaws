@@ -48,7 +48,7 @@ const Signup = () => {
 <section className="hero is-info is-fullheight">
   <div className="hero-body signup">
     <div className="tile is-ancestor">
-      <div className="tile">
+      <div className="tile is-vertical">
         <div className="tile is-child box box-shadow">
           <form onSubmit={handleFormSubmit} className="box signup-form">
             <div className="field">
