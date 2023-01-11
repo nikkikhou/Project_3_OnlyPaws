@@ -28,6 +28,7 @@ display: flex;
 flex-direction: row;
 justify-content: center;
 margin-top: 3rem;
+align-items: flex-end;
 }
 #walking{
 position: absolute;
@@ -38,6 +39,10 @@ display: flex;
 flex-direction: row;
 justify-content: center;
 background-color: burlywood;
+}
+.banner{
+background-color: hsl(0, 0%, 100%, .65);
+border: 3px solid white;
 }
 
 
@@ -67,8 +72,16 @@ color:black;
 .login-tile-container{
 display: flex;
 justify-content: center;
-/* margin-top: 14rem !important; */
 }
+/* Sign-up */
+.tile{
+flex-grow: 0;
+}
+.signup{
+justify-content: center;
+}
+/* margin-top: 14rem !important; */
+
 
 /* profile.js */
 .profile-page{
