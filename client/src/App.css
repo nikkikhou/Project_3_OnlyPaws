@@ -72,8 +72,16 @@ color:black;
 .login-tile-container{
 display: flex;
 justify-content: center;
-/* margin-top: 14rem !important; */
 }
+/* Sign-up */
+.tile{
+flex-grow: 0;
+}
+.signup{
+justify-content: center;
+}
+/* margin-top: 14rem !important; */
+
 
 /* profile.js */
 .profile-page{

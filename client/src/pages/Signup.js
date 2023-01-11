@@ -11,7 +11,7 @@ const Signup = () => {
   const [formState, setFormState] = useState({
     username: '',
     email: '',
-    // breed: '',
+    breed: '',
     password: '',
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
@@ -29,7 +29,6 @@ const Signup = () => {
   /// HANDLE SUBMISSION OF FORM ///
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(formState);
 
     try {
       const { data } = await addUser({
@@ -38,7 +37,6 @@ const Signup = () => {
 
       Auth.login(data.addUser.token, data.addUser.user._id);
     } catch (error) {
-      // console.log(error);
     };
   };
 
@@ -47,17 +45,15 @@ const Signup = () => {
       {data ? (
         <p variant='subtitle1'>Successfully created an account. You may now head{' '}<Link to='/'>back to the hompage.</Link></p>
       ) : (
-
-
 <section className="hero is-info is-fullheight">
-  <div className="hero-body">
-    <div className="container">
-      <div className="columns is-centered">
-        <div className="column is-2-tablet ">
+  <div className="hero-body signup">
+    <div className="tile is-ancestor">
+      <div className="tile">
+        <div className="tile is-child box box-shadow">
           <form onSubmit={handleFormSubmit} className="box signup-form">
             <div className="field">
-              <label for="" class="label">Username</label>
-              <div className="control has-icons-left">
+              <label for="" className="label">Username</label>
+              <div className="control has-text-centered">
               <input
               placeholder='Username'
               name='username'
@@ -68,9 +64,9 @@ const Signup = () => {
             </div>
             <div className="field">
               <label for="" className="label">Email</label>
-              <div className="control has-icons-left">
+              <div className="control has-text-centered">
               <input
-              placeholder='Email'
+              placeholder='Email@Example.com'
               name='email'
               type='text'
               value={formState.email}
@@ -79,7 +75,7 @@ const Signup = () => {
             </div>
              <div className="field">
               <label for="" className="label">Breed</label>
-              <div className="control has-icons-left">
+              <div className="control has-text-centered">
               <input
               placeholder='Breed'
               name='Breed'
@@ -87,14 +83,12 @@ const Signup = () => {
               value={formState.breed}
               onChange={handleChange}
             />           
-            <span className="icon is-small is-left">
-                  <i className="fa fa-envelope" aria-hidden="true"></i>
-                </span>
+
               </div>
             </div>
             <div className="field">
               <label for="" class="label">Password</label>
-              <div class="control has-icons-left">
+              <div className="control has-text-centered">
               <input
               placeholder='Password'
               name='password'
@@ -102,9 +96,7 @@ const Signup = () => {
               value={formState.password}
               onChange={handleChange}
             />            
-             <span className="icon is-small is-left">
-                  <i className="fa fa-lock"></i>
-                </span>
+
               </div>
             </div>
             <div  className="field">
