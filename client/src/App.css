@@ -31,9 +31,6 @@ background-size: cover;
 .overlay{
 background-color: rgb(67, 67, 67, .7);
 }
-
-
-
 /* landing.js */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
 .landing-page{
