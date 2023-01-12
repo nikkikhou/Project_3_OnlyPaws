@@ -3,21 +3,11 @@ import AuthService from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import ProfileList from '../components/ProfileList';
 
-// import { useParams } from 'react-router-dom';
-
-
-// import PostList from '../components/PostList';
-// import PostForm from '../components/PostForm';
-
 import { QUERY_PROFILES } from '../utils/queries';
 
 const Dashboard = () => {
-  // const { profileId } = useParams();
   const { loading, data } = useQuery(QUERY_PROFILES);
-  //   , {
-  //   // pass URL parameter
-  //   variables: { profileId: profileId },
-  // });
+
   const profiles = data?.profiles || [];
 
   return (
