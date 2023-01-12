@@ -32,7 +32,8 @@ const CreateProfileForm = () => {
         const { data } = await addProfile({
             variables: { ...formState },
         });
-         window.location.href = `/`
+        // make this link take user to a page where it displays all of the users profiles they have created - instead of sign up page
+         window.location.href = `/signup`
 
         } catch (err) {
         console.error(err);
