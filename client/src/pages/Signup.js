@@ -78,7 +78,7 @@ const Signup = () => {
               <div className="control has-text-centered">
               <input
               placeholder='Breed'
-              name='Breed'
+              name='breed'
               type='text'
               value={formState.breed}
               onChange={handleChange}

@@ -25,11 +25,12 @@ function Navbar({ currentPage, handlePageChange }) {
             <div className="navbar-item">
               <div className="signup-links">
                 <Link className="has-text-centered" to='/signup' style={{ textDecoration: 'none' }}>
-                  <p className='sign-up'>Sign Up</p>
+                  <p className='button m-1 is-info is-outlined sign-up'>Sign Up</p>
                 </Link>
                 <Link className="has-text-centered" to='/login' style={{ textDecoration: 'none' }}>
-                  <p className='login'>Login</p>
+                  <p className='button m-1 is-info is-outlined login'>Login</p>
                 </Link>
+                
               </div>
             </div>
         </div>

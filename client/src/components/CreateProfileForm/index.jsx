@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-// import { Link } from 'react-router-dom';
-
-
 
 import { ADD_PROFILE } from '../../utils/mutations';
-// import { QUERY_PROFILES, QUERY_ME } from '../../utils/queries';
-
-
-// import Auth from '../../utils/auth';
-// import { QUERY_PROFILES } from '../../utils/queries';
 
 const CreateProfileForm = () => {
 
@@ -49,11 +41,11 @@ const CreateProfileForm = () => {
     };
 
   return (
-    <div>
+    <div className='has-text-centered'>
       <h4>Create A Profile</h4>
 
           <form
-            className="flex-row justify-center justify-space-between-md align-center"
+            className="box"
             onSubmit={handleFormSubmit}
           >
             
@@ -63,6 +55,7 @@ const CreateProfileForm = () => {
               type='text'
               value={formState.name}
               onChange={handleChange}
+              className='m-3'
             /> 
             <input
               placeholder='About Me'
@@ -70,6 +63,8 @@ const CreateProfileForm = () => {
               type='text'
               value={formState.aboutMe}
               onChange={handleChange}
+              className='about-me-input m-3'
+
             /> 
             <input
               placeholder='Upload a Profile photo'
@@ -77,6 +72,8 @@ const CreateProfileForm = () => {
               type='text'
               value={formState.img}
               onChange={handleChange}
+              className='m-3'
+
             />
             <input
               placeholder='My owner'
@@ -84,13 +81,13 @@ const CreateProfileForm = () => {
               type='text'
               value={formState.originalUser}
               onChange={handleChange}
-            />
+              className='m-3'
 
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
+            />
+              <button className="button m-3 is-info is-outlined" type="submit">
                 Create Profile
               </button>
-            </div>
+          
           </form>
 
     </div>

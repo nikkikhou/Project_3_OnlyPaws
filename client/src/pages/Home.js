@@ -5,12 +5,12 @@ const Home = () => {
     <div id='home-page'>
       <section class="hero is-fullheight">
         <div class="hero-body">
-          <div class="container has-text-centered">
+          <div class="container has-text-centered overlay">
             <div class="column is-6 is-offset-3">
-              <h1 class="title">
+              <h1 class="title has-text-white">
                 Welcome to OnlyPaws!!!
               </h1>
-              <h2 class="subtitle">
+              <h2 class="subtitle has-text-white">
                 This is the a social media platform to all of our four legged friends out there! For those of you new to the litter.... Welcome!
               </h2>
             </div>
