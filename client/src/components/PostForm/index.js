@@ -40,7 +40,7 @@ const PostForm = ({ profileId }) => {
   };
 
   return (
-    <div>
+    <div className=''>
       <h4 className='has-text-centered m-4 is-size-5'>Create a post</h4>
       <form className="has-text-centered" onSubmit={handleFormSubmit}>
         <div className="col-12 col-lg-9">
@@ -52,7 +52,7 @@ const PostForm = ({ profileId }) => {
             onChange={handleChange}
           >
           </textarea>
-          <p className={`m-0 has-text-centered ${characterCount === 280 || error ? 'text-danger' : ''}`}>
+          <p className={`m-0 has-text-centered is-size-7 ${characterCount === 280 || error ? 'text-danger' : ''}`}>
             Character Count: {characterCount}/280
             {error && <span className="ml-2">{error.message}</span>}
           </p>

@@ -23,7 +23,7 @@ const SingleProfile = () => {
   }
   return (
     <div className="my-3 has-background-warning is-flex is-flex-direction-column is-flex-wrap-wrap is-justify-content-center is-align-content-center ">
-      <div className='card profile-card'>
+      <div className='card m-3 p-4 profile-card'>
         <h3 className="has-text-centered is-size-3 ">
           {profile.name} 
         </h3>
@@ -39,7 +39,7 @@ const SingleProfile = () => {
       </div>
       <div className="">
       </div>
-      <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
+      <div className="card m-3 p-4">
         <PostForm profileId={profile._id} />
       </div>
       <div className="my-5">
