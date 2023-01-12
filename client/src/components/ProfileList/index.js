@@ -6,15 +6,14 @@ const ProfileList = ({ profiles, title }) => {
   if (!profiles.length) {
     return <h3>No Profiles Yet</h3>;
   }
-
   return (
     <div>
-      <h3 className="has-text-centered is-size-4 m-3">{title}</h3>
-      <div className="is-flex is-flex-direction-row is-flex-wrap-wrap	is-justify-content-space-around is-align-items-center">
+      <h3 className="has-text-centered has-text-white has-text-weight-medium is-size-4 p-3 mt-4">{title}</h3>
+      <div className="m-1 p-4 is-flex is-flex-direction-row is-flex-wrap-wrap	is-justify-content-space-around is-align-items-center">
         {profiles &&
           profiles.map((profile) => (
 
-            <div key={profile._id} class="card">
+            <div key={profile._id} class="card m-2">
               <div class="card-image">
               </div>
               <div class="card-content">
@@ -32,8 +31,8 @@ const ProfileList = ({ profiles, title }) => {
                 <div class="content has-text-centered">
                   "{profile.aboutMe}"
                   <br></br>
-                    <Link className="button" to={`/profile/${profile._id}`}>
-                      Go to profile
+                    <Link className="button m-3" to={`/profile/${profile._id}`}>
+                      <p className=''>Go to profile</p>
                     </Link>    
                 </div>
               </div>

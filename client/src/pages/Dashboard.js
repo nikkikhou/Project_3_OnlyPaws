@@ -11,11 +11,8 @@ const Dashboard = () => {
   const profiles = data?.profiles || [];
 
   return (
-        <div
-          className="mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <div className="my-3">
+        <div className="profile-container mb-3 p-3">
+          <div className="my-3 overlay2">
               {loading ? (
                 <div>Loading...</div>
               ) : (
