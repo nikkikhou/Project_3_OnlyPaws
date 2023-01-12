@@ -42,7 +42,7 @@ const SingleProfile = () => {
       <div className="card m-3 p-4">
         <PostForm profileId={profile._id} />
       </div>
-      <div className="my-5">
+      <div className="card m-3 p-4">
         <PostList posts={profile.posts} />
       </div>
     </div>
