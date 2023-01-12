@@ -48,10 +48,10 @@ const Login = (props) => {
 
 
 <section className="hero is-info is-fullheight">
-  <div className="hero-body">
-    <div className="container">
-      <div className="columns is-centered">
-        <div className="column is-2-tablet ">
+  <div className="hero-body is-justify-content-center">
+    <div className="tile is-ancestor">
+      <div className="tile is-vertical">
+        <div className="tile is-child box box-shadow">
           <form onSubmit={handleFormSubmit} className="box login-form">
             <div>Welcome back!
 

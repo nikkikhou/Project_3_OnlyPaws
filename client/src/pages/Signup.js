@@ -46,7 +46,7 @@ const Signup = () => {
         <p variant='subtitle1'>Successfully created an account. You may now head{' '}<Link to='/'>back to the hompage.</Link></p>
       ) : (
 <section className="hero is-info is-fullheight">
-  <div className="hero-body signup">
+  <div className="hero-body is-justify-content-center">
     <div className="tile is-ancestor">
       <div className="tile is-vertical">
         <div className="tile is-child box box-shadow">
