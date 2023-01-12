@@ -88,11 +88,9 @@ flex-grow: 0;
 }
 
 /* profile.js */
-.profile-page{
-background-color: #F0EAD6;
-height: 100vh;
-width: 100vw;
-overflow: hidden;
+.profile-bg{
+background-image: url(./components/Paw.jpg);
+background-size: cover;
 }
 .profile-card{
 width: 50%;

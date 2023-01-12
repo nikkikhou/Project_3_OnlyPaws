@@ -2,7 +2,7 @@ import React from 'react';
 
 const PostList = ({ posts = [{}] }) => {
   if (!posts.length) {
-    return <h3>No Posts Yet</h3>;
+    return <h3 className='has-text-centered'>No posts yet, be the first to post!</h3>;
   }
   return (
     <>
