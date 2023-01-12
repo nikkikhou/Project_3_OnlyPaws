@@ -53,8 +53,8 @@ const Login = (props) => {
       <div className="tile is-vertical">
         <div className="tile is-child box box-shadow">
           <form onSubmit={handleFormSubmit} className="box login-form">
-            <div>Welcome back!
-
+            <div className='has-text-centered m-4'>
+              <h1>Welcome back!</h1>
             </div>
             <div className="field">
               <label for="" className="label">Email</label>
