@@ -22,22 +22,22 @@ const SingleProfile = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="my-3">
-      <h3 className="card-header bg-dark text-light p-2 m-0">
-        {profile.name} 
-      </h3>
-      <div className="bg-light py-4">
-        <blockquote
-          className="p-4"
-          style={{
-            fontSize: '1.5rem',
-            fontStyle: 'italic',
-            border: '2px dotted #1a1a1a',
-            lineHeight: '1.5',
-          }}
-        >
-          {profile.aboutMe}
-        </blockquote>
+    <div className="my-3 has-background-warning is-flex is-flex-direction-column is-flex-wrap-wrap is-justify-content-center is-align-content-center ">
+      <div className='card profile-card'>
+        <h3 className="has-text-centered is-size-3 ">
+          {profile.name} 
+        </h3>
+        <figure className="image is-48x48">
+          {profile.img}
+        </figure>
+        <p className="p-4 has-text-centered">
+          "{profile.aboutMe}"
+        </p>
+        <p className="p-4 has-text-centered">
+          My owner is {profile.originalUser}
+        </p>
+      </div>
+      <div className="">
       </div>
       <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
         <PostForm profileId={profile._id} />

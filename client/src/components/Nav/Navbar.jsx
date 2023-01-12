@@ -10,9 +10,11 @@ function Navbar({ currentPage, handlePageChange }) {
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
+        <Link className="mt-3" to='/'>
         <p className="navbar-item">
           <img src="https://images.cooltext.com/5634882.png" alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="150" height="130"></img>
         </p>
+        </Link>
         <a onClick={() => { setisActive(!isActive); }} role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>

@@ -94,14 +94,8 @@ height: 100vh;
 width: 100vw;
 overflow: hidden;
 }
-.bio-container{
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: flex-start;
-height: 300px;
-width: 100vw;
-/* background-color: black; */
+.profile-card{
+width: 50%;
 }
 .profile-photo-container{
 height: 275px;
