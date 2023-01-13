@@ -2,7 +2,7 @@ import React from 'react';
 import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_PROFILE } from '../utils/queries';
@@ -23,13 +23,16 @@ const SingleProfile = () => {
   }
   return (
     <div className="profile-bg my-3 has-background-warning is-flex is-flex-direction-column is-flex-wrap-wrap is-justify-content-center is-align-content-center ">
+        <Link className="button m-3 is-white is-outlined" to={`/dashboard`}>
+        <p className=''>Back to dashboard</p>
+        </Link> 
       <div className='card m-3 p-4 profile-card'>
         <h3 className="has-text-centered is-size-3 ">
           {profile.name} 
         </h3>
         <figure className="image is-48x48">
           {profile.img}
-        </figure>
+        </figure> 
         <p className="p-4 has-text-centered">
           "{profile.aboutMe}"
         </p>

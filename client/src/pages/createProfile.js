@@ -19,10 +19,6 @@ const CreateAProfile = () => {
         </div>
       </div>
     </section>
-
-        // <div className="" >
-        //   <CreateProfileForm />
-        // </div>
   )
 };
 
