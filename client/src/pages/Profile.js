@@ -2,7 +2,7 @@ import React from 'react';
 import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_PROFILE } from '../utils/queries';
@@ -22,27 +22,30 @@ const SingleProfile = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="my-3">
-      <h3 className="card-header bg-dark text-light p-2 m-0">
-        {profile.name} 
-      </h3>
-      <div className="bg-light py-4">
-        <blockquote
-          className="p-4"
-          style={{
-            fontSize: '1.5rem',
-            fontStyle: 'italic',
-            border: '2px dotted #1a1a1a',
-            lineHeight: '1.5',
-          }}
-        >
-          {profile.aboutMe}
-        </blockquote>
+    <div className="profile-bg my-3 has-background-warning is-flex is-flex-direction-column is-flex-wrap-wrap is-justify-content-center is-align-content-center ">
+        <Link className="button m-3 is-white is-outlined" to={`/dashboard`}>
+        <p className=''>Back to dashboard</p>
+        </Link> 
+      <div className='card m-3 p-4 profile-card'>
+        <h3 className="has-text-centered is-size-3 ">
+          {profile.name} 
+        </h3>
+        <figure className="image is-48x48">
+          {profile.img}
+        </figure> 
+        <p className="p-4 has-text-centered">
+          "{profile.aboutMe}"
+        </p>
+        <p className="p-4 has-text-centered">
+          My owner is {profile.originalUser}
+        </p>
       </div>
-      <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
+      <div className="">
+      </div>
+      <div className="card m-3 p-4">
         <PostForm profileId={profile._id} />
       </div>
-      <div className="my-5">
+      <div className="card m-3 p-4">
         <PostList posts={profile.posts} />
       </div>
     </div>

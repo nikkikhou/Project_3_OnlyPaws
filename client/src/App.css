@@ -12,12 +12,6 @@ padding: .25rem;
 }
 
 /* Home page */
-#walking-dog {
-height: 100vh;
-width: 100vw;
-position:absolute;
-z-index:-999;
-}
 #home-container{
 height: 50vh;
 width: 100vw;
@@ -28,18 +22,15 @@ display: flex;
 flex-direction: row;
 justify-content: center;
 margin-top: 3rem;
+align-items: flex-end;
 }
-#walking{
-position: absolute;
-z-index: -1;
-height: 100vh;
-width: 100vw;
-display: flex;
-flex-direction: row;
-justify-content: center;
-background-color: burlywood;
+.hero-body{
+background-image: url('./components/pexels-pixabay-247522.jpg');
+background-size: cover;
 }
-
+.overlay{
+background-color: rgb(67, 67, 67, .7);
+}
 
 
 /* landing.js */
@@ -63,28 +54,46 @@ font-family: 'Ubuntu', sans-serif;
 color:black;
 }
 
+/* Dashboard */
+.profile-container{
+height: 100vh;
+width: 100vw;
+background-image: url(./components/Shepard.jpg);
+background-size: cover;
+}
+.overlay2{
+background-color: rgb(67, 67, 67, .7);
+}
+
+
+
+
+
 /* login.js */
 .login-tile-container{
 display: flex;
 justify-content: center;
+}
+/* Sign-up */
+.tile{
+flex-grow: 0;
+}
+
 /* margin-top: 14rem !important; */
+
+
+/* create a profile page */
+.about-me-input{
+    resize: both;
 }
 
 /* profile.js */
-.profile-page{
-background-color: #F0EAD6;
-height: 100vh;
-width: 100vw;
-overflow: hidden;
+.profile-bg{
+background-image: url(./components/Paw.jpg);
+background-size: cover;
 }
-.bio-container{
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: flex-start;
-height: 300px;
-width: 100vw;
-/* background-color: black; */
+.profile-card{
+width: 50%;
 }
 .profile-photo-container{
 height: 275px;
